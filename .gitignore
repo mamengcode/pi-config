@@ -1,0 +1,13 @@
+# Credentials
+**/auth.json
+
+# Dependencies & binaries
+**/node_modules/
+**/bin/
+
+# Ephemeral runtime data & usage logs
+**/sessions/
+**/plans/
+**/usage.json
+*.log
+.DS_Store

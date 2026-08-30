@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "fast": {
+      "primary": {
+        "model": "openai-codex/gpt-5.6-luna",
+        "thinkingLevel": "high"
+      }
+    }
+  },
+  "tasks": {
+    "pi-herdr-btw/btw": "fast",
+    "pi-herdr-rename/rename": "fast",
+    "pi-auto-compact/autoCompact": "fast",
+    "pi-subagent/delegateTask": "fast"
+  }
+}
