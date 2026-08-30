@@ -1,6 +1,6 @@
 # pi-config
 
-Backup and setup repository for Pi Agent configuration, models, agent role definitions, and extensions.
+Backup and configuration repository for Pi Agent settings, custom models, multi-agent roles, and extension packages.
 
 ## Repository Contents
 
@@ -22,7 +22,7 @@ Backup and setup repository for Pi Agent configuration, models, agent role defin
    git clone git@github.com:mamengcode/pi-config.git ~/pi-config
    ```
 
-2. Run the install script:
+2. Run the installer (creates symlinks into `~/.pi/agent` and installs npm packages):
    ```bash
    cd ~/pi-config
    ./install.sh
@@ -30,5 +30,16 @@ Backup and setup repository for Pi Agent configuration, models, agent role defin
 
 3. Authenticate with your provider:
    ```bash
-   # Log in to generate ~/.pi/agent/auth.json
+   # Authenticate with Pi to generate ~/.pi/agent/auth.json
    ```
+
+## Updating and Pushing Changes
+
+Because `~/.pi/agent` files are symlinked directly to this repo, any configuration changes are instantly reflected here. To push changes:
+
+```bash
+cd ~/pi-config
+git diff
+git commit -am "update: config or agent prompts"
+git push
+```

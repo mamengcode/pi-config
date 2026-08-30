@@ -4,25 +4,24 @@ set -e
 PI_TARGET_DIR="${HOME}/.pi/agent"
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/agent"
 
-echo "==> Setting up Pi configuration in ${PI_TARGET_DIR}..."
+echo "==> Setting up Pi configuration symlinks in ${PI_TARGET_DIR}..."
 mkdir -p "${PI_TARGET_DIR}/config" "${PI_TARGET_DIR}/npm"
 
-# Copy global settings, models, and task profiles
-cp "${REPO_DIR}/settings.json" "${PI_TARGET_DIR}/"
-cp "${REPO_DIR}/models-store.json" "${PI_TARGET_DIR}/"
-cp -R "${REPO_DIR}/agents" "${PI_TARGET_DIR}/"
-cp -R "${REPO_DIR}/config/"* "${PI_TARGET_DIR}/config/"
-
-# Copy npm extension manifest & lockfile
-cp "${REPO_DIR}/npm/package.json" "${PI_TARGET_DIR}/npm/"
+# Create symlinks to repository files
+ln -sf "${REPO_DIR}/settings.json" "${PI_TARGET_DIR}/settings.json"
+ln -sf "${REPO_DIR}/models-store.json" "${PI_TARGET_DIR}/models-store.json"
+rm -rf "${PI_TARGET_DIR}/agents"
+ln -s "${REPO_DIR}/agents" "${PI_TARGET_DIR}/agents"
+ln -sf "${REPO_DIR}/config/pi-task-models.json" "${PI_TARGET_DIR}/config/pi-task-models.json"
+ln -sf "${REPO_DIR}/npm/package.json" "${PI_TARGET_DIR}/npm/package.json"
 if [ -f "${REPO_DIR}/npm/package-lock.json" ]; then
-  cp "${REPO_DIR}/npm/package-lock.json" "${PI_TARGET_DIR}/npm/"
+  ln -sf "${REPO_DIR}/npm/package-lock.json" "${PI_TARGET_DIR}/npm/package-lock.json"
 fi
 
-# Install extensions
+# Install extension dependencies
 echo "==> Installing Pi extension packages..."
 (cd "${PI_TARGET_DIR}/npm" && npm install --omit=dev)
 
 echo ""
-echo "==> Installation complete!"
+echo "==> Installation and symlinking complete!"
 echo "NOTE: Remember to authenticate with your provider (e.g. via Pi CLI / auth flow) to create ~/.pi/agent/auth.json."
