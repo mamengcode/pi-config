@@ -5,10 +5,15 @@
   "defaultModel": "gpt-5.6-luna",
   "defaultThinkingLevel": "medium",
   "packages": [
-    "npm:@henryqw/pi-multi-codex",
-    "npm:@henryqw/pi-task-models",
-    "npm:pi-antigravity",
     "npm:pi-open-agents",
-    "npm:pi-coding-agent"
-  ]
+    "npm:pi-coding-agent",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-mcp-adapter",
+    "npm:pi-context",
+    "npm:@gotgenes/pi-permission-system"
+  ],
+  "modelThinkingLevels": {
+    "openai-codex/gpt-5.6-luna": "high"
+  }
 }

@@ -2,10 +2,12 @@
   "name": "pi-extensions",
   "private": true,
   "dependencies": {
-    "@henryqw/pi-multi-codex": "^0.3.17",
-    "@henryqw/pi-task-models": "^3.0.2",
-    "pi-antigravity": "^0.4.1",
+    "@gotgenes/pi-permission-system": "^28.0.1",
+    "@juicesharp/rpiv-ask-user-question": "^2.8.0",
+    "@juicesharp/rpiv-todo": "^2.8.0",
     "pi-coding-agent": "^0.0.1",
+    "pi-context": "^2.1.2",
+    "pi-mcp-adapter": "^2.31.0",
     "pi-open-agents": "^0.1.20"
   }
 }
