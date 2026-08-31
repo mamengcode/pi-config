@@ -16,10 +16,14 @@
     "npm:@narumitw/pi-btw"
   ],
   "modelThinkingLevels": {
-    "openai-codex/gpt-5.6-luna": "high"
+    "openai-codex/gpt-5.6-luna": "high",
+    "openai-codex/gpt-5.6-sol": "medium"
   },
   "compaction": {
     "enabled": true
   },
-  "tuiMode": "regular"
+  "tuiMode": "regular",
+  "terminal": {
+    "showTerminalProgress": true
+  }
 }

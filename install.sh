@@ -22,6 +22,14 @@ fi
 echo "==> Installing Pi extension packages..."
 (cd "${PI_TARGET_DIR}/npm" && npm install --omit=dev)
 
+# Patch pi-open-agents to use Alt+A for cycling agents (fixes macOS/terminal Ctrl+Shift+M collision)
+SELECTOR_FILE="${PI_TARGET_DIR}/npm/node_modules/pi-open-agents/src/tui/selector.ts"
+if [ -f "$SELECTOR_FILE" ]; then
+  echo "==> Applying Alt+A shortcut patch to pi-open-agents..."
+  sed -i '' 's/Key.ctrlShift("m")/Key.alt("a")/g' "$SELECTOR_FILE" 2>/dev/null || \
+  sed -i 's/Key.ctrlShift("m")/Key.alt("a")/g' "$SELECTOR_FILE" 2>/dev/null || true
+fi
+
 echo ""
 echo "==> Installation and symlinking complete!"
 echo "NOTE: Remember to authenticate with your provider (e.g. via Pi CLI / auth flow) to create ~/.pi/agent/auth.json."
