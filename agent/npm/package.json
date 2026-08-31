@@ -1,5 +1,6 @@
 {
   "name": "pi-extensions",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@gotgenes/pi-permission-system": "^29.0.0",

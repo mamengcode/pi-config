@@ -25,5 +25,11 @@
   "tuiMode": "regular",
   "terminal": {
     "showTerminalProgress": true
-  }
+  },
+  "agentOrder": [
+    "explorer",
+    "planner",
+    "coordinator",
+    "direct-implementer"
+  ]
 }

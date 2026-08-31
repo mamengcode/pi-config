@@ -18,17 +18,12 @@ if [ -f "${REPO_DIR}/npm/package-lock.json" ]; then
   ln -sf "${REPO_DIR}/npm/package-lock.json" "${PI_TARGET_DIR}/npm/package-lock.json"
 fi
 
-# Install extension dependencies
+# 2. Install extension dependencies and run patches
 echo "==> Installing Pi extension packages..."
 (cd "${PI_TARGET_DIR}/npm" && npm install --omit=dev)
 
-# Patch pi-open-agents to use Alt+A for cycling agents (fixes macOS/terminal Ctrl+Shift+M collision)
-SELECTOR_FILE="${PI_TARGET_DIR}/npm/node_modules/pi-open-agents/src/tui/selector.ts"
-if [ -f "$SELECTOR_FILE" ]; then
-  echo "==> Applying Alt+A shortcut patch to pi-open-agents..."
-  sed -i '' 's/Key.ctrlShift("m")/Key.alt("a")/g' "$SELECTOR_FILE" 2>/dev/null || \
-  sed -i 's/Key.ctrlShift("m")/Key.alt("a")/g' "$SELECTOR_FILE" 2>/dev/null || true
-fi
+echo "==> Applying patches to pi-open-agents..."
+node "${REPO_DIR}/npm/patch-open-agents.js"
 
 echo ""
 echo "==> Installation and symlinking complete!"
