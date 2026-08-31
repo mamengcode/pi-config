@@ -11,9 +11,15 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-mcp-adapter",
     "npm:pi-context",
-    "npm:@gotgenes/pi-permission-system"
+    "npm:@gotgenes/pi-permission-system",
+    "npm:@narumitw/pi-starship",
+    "npm:@narumitw/pi-btw"
   ],
   "modelThinkingLevels": {
     "openai-codex/gpt-5.6-luna": "high"
-  }
+  },
+  "compaction": {
+    "enabled": true
+  },
+  "tuiMode": "regular"
 }

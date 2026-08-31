@@ -2,9 +2,11 @@
   "name": "pi-extensions",
   "private": true,
   "dependencies": {
-    "@gotgenes/pi-permission-system": "^28.0.1",
+    "@gotgenes/pi-permission-system": "^29.0.0",
     "@juicesharp/rpiv-ask-user-question": "^2.8.0",
     "@juicesharp/rpiv-todo": "^2.8.0",
+    "@narumitw/pi-btw": "^0.56.0",
+    "@narumitw/pi-starship": "^0.54.0",
     "pi-coding-agent": "^0.0.1",
     "pi-context": "^2.1.2",
     "pi-mcp-adapter": "^2.31.0",

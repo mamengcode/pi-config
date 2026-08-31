@@ -7,10 +7,11 @@ Backup and configuration repository for Pi Agent settings, custom models, multi-
 - `agent/settings.json`: Global configuration, theme, default model, and package lists.
 - `agent/models-store.json`: Custom models catalog and endpoints.
 - `agent/agents/`: Multi-agent system role prompts and permissions:
+  - `explorer.md`
+  - `planner.md`
   - `coordinator.md`
   - `direct-implementer.md`
   - `implementer.md`
-  - `planner.md`
   - `reviewer.md`
 - `agent/config/pi-task-models.json`: Task-to-profile routing mappings.
 - `agent/npm/`: Extensions manifest (`package.json`, `package-lock.json`).
