@@ -3,7 +3,7 @@ name: planner
 description: Repository analysis, implementation planning, and execution-route recommendation
 mode: primary
 model: openai-codex/gpt-5.6-sol
-thinking: high
+thinking: medium
 
 permission:
   "*": allow
