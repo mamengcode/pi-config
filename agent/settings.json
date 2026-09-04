@@ -1,21 +1,27 @@
 {
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.0",
   "theme": "dark",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
-  "defaultThinkingLevel": "medium",
+  "defaultModel": "gpt-5.6-luna",
+  "defaultThinkingLevel": "xhigh",
   "packages": [
-    "npm:pi-open-agents",
     "npm:pi-coding-agent",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-mcp-adapter",
     "npm:pi-context",
     "npm:@narumitw/pi-starship",
     "npm:@narumitw/pi-btw",
-    "npm:pi-web-access"
+    "npm:@juicesharp/rpiv-pi",
+    "npm:@tintinweb/pi-subagents",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-advisor",
+    "npm:@juicesharp/rpiv-i18n",
+    "npm:@juicesharp/rpiv-web-tools",
+    "npm:@juicesharp/rpiv-args",
+    "npm:@juicesharp/rpiv-workflow"
   ],
   "modelThinkingLevels": {
-    "openai-codex/gpt-5.6-luna": "high",
+    "openai-codex/gpt-5.6-luna": "xhigh",
     "openai-codex/gpt-5.6-sol": "medium"
   },
   "compaction": {

@@ -3,13 +3,19 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "@juicesharp/rpiv-advisor": "^2.9.0",
+    "@juicesharp/rpiv-args": "^2.9.0",
+    "@juicesharp/rpiv-ask-user-question": "^2.9.0",
+    "@juicesharp/rpiv-i18n": "^2.9.0",
+    "@juicesharp/rpiv-pi": "^2.9.0",
     "@juicesharp/rpiv-todo": "^2.9.0",
-    "@narumitw/pi-btw": "^0.56.2",
+    "@juicesharp/rpiv-web-tools": "^2.9.0",
+    "@juicesharp/rpiv-workflow": "^2.9.0",
+    "@narumitw/pi-btw": "^0.57.0",
     "@narumitw/pi-starship": "^0.54.0",
+    "@tintinweb/pi-subagents": "^0.19.0",
     "pi-coding-agent": "^0.0.1",
     "pi-context": "^2.1.2",
-    "pi-mcp-adapter": "^2.32.1",
-    "pi-open-agents": "^0.1.20",
-    "pi-web-access": "^0.27.0"
+    "pi-mcp-adapter": "^2.32.1"
   }
 }
