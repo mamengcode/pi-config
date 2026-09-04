@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { homedir } from "node:os";
 import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const pkgDir = join(__dirname, "node_modules", "pi-open-agents");
+const agentDir = process.env.PI_AGENT_DIR ?? join(homedir(), ".pi", "agent");
+const agentRequire = createRequire(join(agentDir, "npm", "package.json"));
+let pkgDir;
 
-if (!existsSync(pkgDir)) {
-  process.exit(0);
+try {
+  pkgDir = dirname(agentRequire.resolve("pi-open-agents/package.json"));
+} catch {
+  console.error(`Unable to find pi-open-agents under ${join(agentDir, "npm")}`);
+  process.exit(1);
 }
 
 // 1. Patch selector.ts to use Alt+A

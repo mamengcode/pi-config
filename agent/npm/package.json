@@ -3,13 +3,12 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@gotgenes/pi-permission-system": "^29.1.0",
-    "@juicesharp/rpiv-todo": "^2.8.0",
-    "@narumitw/pi-btw": "^0.56.0",
+    "@juicesharp/rpiv-todo": "^2.9.0",
+    "@narumitw/pi-btw": "^0.56.2",
     "@narumitw/pi-starship": "^0.54.0",
     "pi-coding-agent": "^0.0.1",
     "pi-context": "^2.1.2",
-    "pi-mcp-adapter": "^2.31.0",
+    "pi-mcp-adapter": "^2.32.1",
     "pi-open-agents": "^0.1.20",
     "pi-web-access": "^0.27.0"
   }

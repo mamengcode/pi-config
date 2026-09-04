@@ -9,5 +9,7 @@
 **/sessions/
 **/plans/
 **/usage.json
+**/models-store.json
 *.log
 .DS_Store
+

@@ -10,7 +10,6 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-mcp-adapter",
     "npm:pi-context",
-    "npm:@gotgenes/pi-permission-system",
     "npm:@narumitw/pi-starship",
     "npm:@narumitw/pi-btw",
     "npm:pi-web-access"

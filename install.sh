@@ -9,7 +9,6 @@ mkdir -p "${PI_TARGET_DIR}/config" "${PI_TARGET_DIR}/npm"
 
 # Create symlinks to repository files
 ln -sf "${REPO_DIR}/settings.json" "${PI_TARGET_DIR}/settings.json"
-ln -sf "${REPO_DIR}/models-store.json" "${PI_TARGET_DIR}/models-store.json"
 rm -rf "${PI_TARGET_DIR}/agents"
 ln -s "${REPO_DIR}/agents" "${PI_TARGET_DIR}/agents"
 ln -sf "${REPO_DIR}/config/pi-task-models.json" "${PI_TARGET_DIR}/config/pi-task-models.json"
@@ -23,7 +22,7 @@ echo "==> Installing Pi extension packages..."
 (cd "${PI_TARGET_DIR}/npm" && npm install --omit=dev)
 
 echo "==> Applying patches to pi-open-agents..."
-node "${REPO_DIR}/npm/patch-open-agents.js"
+PI_AGENT_DIR="${PI_TARGET_DIR}" node "${REPO_DIR}/npm/patch-open-agents.js"
 
 echo ""
 echo "==> Installation and symlinking complete!"
