@@ -2,7 +2,7 @@
 name: direct-implementer
 description: End-to-end implementation of a straightforward approved plan
 mode: primary
-model: openai-codex/gpt-5.6-luna
+model: openai-codex/gpt-6-luna
 thinking: max
 
 allowedAgents:

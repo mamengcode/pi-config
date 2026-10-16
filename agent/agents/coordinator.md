@@ -2,7 +2,7 @@
 name: coordinator
 description: Coordinates implementation, delegates scoped work, integrates results, and drives review
 mode: primary
-model: openai-codex/gpt-5.6-luna
+model: openai-codex/gpt-6-luna
 thinking: max
 
 allowedAgents:

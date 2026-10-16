@@ -2,7 +2,7 @@
 name: explorer
 description: Problem exploration, boundary clarification, and approach evaluation before planning
 mode: primary
-model: openai-codex/gpt-5.6-sol
+model: openai-codex/gpt-6-astra
 thinking: medium
 
 permission:

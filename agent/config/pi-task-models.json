@@ -2,7 +2,7 @@
   "profiles": {
     "fast": {
       "primary": {
-        "model": "openai-codex/gpt-5.6-luna",
+        "model": "openai-codex/gpt-6-luna",
         "thinkingLevel": "high"
       }
     }

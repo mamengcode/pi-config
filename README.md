@@ -11,6 +11,7 @@ Backup and configuration repository for Pi Agent settings, custom models, multi-
   - `coordinator.md`
   - `direct-implementer.md`
   - `implementer.md`
+  - `mechanic.md`: Straightforward and long-running execution (`gpt-6-luna`, max thinking).
   - `reviewer.md`
 - `agent/config/pi-task-models.json`: Task-to-profile routing mappings.
 - `agent/npm/`: Extensions manifest (`package.json`, `package-lock.json`).

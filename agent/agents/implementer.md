@@ -2,7 +2,7 @@
 name: implementer
 description: Scoped implementation worker operating under a coordinator
 mode: subagent
-model: openai-codex/gpt-5.6-luna
+model: openai-codex/gpt-6-luna
 thinking: xhigh
 
 permission:

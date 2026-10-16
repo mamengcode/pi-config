@@ -7,7 +7,6 @@
     "@juicesharp/rpiv-args": "^2.13.8",
     "@juicesharp/rpiv-ask-user-question": "^2.13.8",
     "@juicesharp/rpiv-i18n": "^2.13.8",
-    "@juicesharp/rpiv-pi": "^2.13.8",
     "@juicesharp/rpiv-todo": "^2.13.8",
     "@juicesharp/rpiv-web-tools": "^2.13.8",
     "@juicesharp/rpiv-workflow": "^2.13.8",

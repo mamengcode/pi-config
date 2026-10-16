@@ -2,7 +2,7 @@
 name: reviewer
 description: Independent read-only reviewer for correctness, tests, regressions, and unnecessary complexity
 mode: subagent
-model: openai-codex/gpt-5.6-terra
+model: openai-codex/gpt-6.1-sol
 thinking: high
 
 permission:
