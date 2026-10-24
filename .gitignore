@@ -10,6 +10,7 @@
 **/plans/
 **/usage.json
 **/models-store.json
+/.pi-benchmarks/
 *.log
 .DS_Store
 

@@ -1,7 +1,7 @@
 ---
 name: researcher
 description: Read-only investigation of repository context, dependencies, and external documentation
-model: openai-codex/gpt-6-astra
+model: openai-codex/gpt-6.1-sol
 thinking: medium
 tools: read, bash, grep, find, ls, ext:rpiv-web-tools
 extensions: [rpiv-web-tools]

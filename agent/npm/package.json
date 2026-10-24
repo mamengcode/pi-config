@@ -3,18 +3,28 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@juicesharp/rpiv-advisor": "^2.13.9",
-    "@juicesharp/rpiv-args": "^2.13.9",
-    "@juicesharp/rpiv-ask-user-question": "^2.13.9",
-    "@juicesharp/rpiv-i18n": "^2.13.9",
-    "@juicesharp/rpiv-todo": "^2.13.9",
-    "@juicesharp/rpiv-web-tools": "^2.13.9",
-    "@juicesharp/rpiv-workflow": "^2.13.9",
-    "@narumitw/pi-btw": "^0.61.1",
-    "@narumitw/pi-starship": "^0.59.0",
+    "@juicesharp/rpiv-advisor": "^2.15.0",
+    "@juicesharp/rpiv-args": "^2.15.0",
+    "@juicesharp/rpiv-ask-user-question": "^2.15.0",
+    "@juicesharp/rpiv-i18n": "^2.15.0",
+    "@juicesharp/rpiv-todo": "^2.15.0",
+    "@juicesharp/rpiv-web-tools": "^2.15.0",
+    "@juicesharp/rpiv-workflow": "^2.15.0",
+    "@narumitw/pi-btw": "^0.62.0",
+    "@narumitw/pi-starship": "^0.60.1",
     "@tintinweb/pi-subagents": "^0.22.0",
-    "pi-coding-agent": "^0.0.1",
+    "pi-artifacts": "^0.1.0",
     "pi-context": "^2.3.0",
-    "pi-mcp-adapter": "^5.3.1"
+    "pi-goal-x": "^0.32.3",
+    "pi-mcp-adapter": "^6.0.0"
+  },
+  "overrides": {
+    "@earendil-works/pi-coding-agent": {
+      "undici": "8.12.3"
+    }
+  },
+  "allowScripts": {
+    "protobufjs@7.6.6": true,
+    "@google/genai": false
   }
 }

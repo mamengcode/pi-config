@@ -1,8 +1,8 @@
 ---
 name: planner
 description: Write detailed executable plans from the orchestrator's chosen approach and research context
-model: openai-codex/gpt-6-astra
-thinking: medium
+model: openai-codex/gpt-6.1-sol
+thinking: high
 tools: read, bash, grep, find, ls
 extensions: false
 allowed_subagents: none

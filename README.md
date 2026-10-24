@@ -11,8 +11,8 @@ Backup and configuration repository for Pi Agent settings, custom models, multi-
   | Role | Model | Thinking | Responsibility |
   | --- | --- | --- | --- |
   | orchestrator | gpt-6.1-sol | medium | Default user-facing orchestration, routing, integration, validation |
-  | researcher | gpt-6-astra | medium | Read-only repository and external documentation research |
-  | planner | gpt-6-astra | medium | Read-only detailed implementation plans |
+  | researcher | gpt-6.1-sol | medium | Read-only repository and external documentation research |
+  | planner | gpt-6.1-sol | high | Read-only detailed implementation plans |
   | implementer | gpt-6-luna | xhigh | Execute a plan or assigned slice |
   | reviewer | gpt-6.1-sol | high | Independent read-only implementation review |
   | mechanic | gpt-6-luna | high | Bounded easy/direct, repetitive, or long-running execution |
@@ -110,6 +110,9 @@ make no model calls or package installations:
   and review-to-fix scenarios exercise handoff plumbing, not autonomous model
   compliance. Retry/review routing remains an instruction policy, while the
   runtime enforces the turn limit with its grace period.
+- `tests/benchmark.test.mjs` checks consent guards, metric summaries, timeout
+  capture, external acceptance/mutation checks, and real SDK session construction
+  stopped before prompting (no provider call).
 
 Fixtures use temporary directories, not your active configuration. These tests
 do not prove provider availability, thinking clamping, or full SDK tool-registry
@@ -117,6 +120,45 @@ behavior. Managed Pi installations are discovered automatically. For other
 layouts, set `PI_TEST_PI_PACKAGE` to the Pi package directory or its JavaScript
 entrypoint. The runtime tests require the installed extension dependencies in
 `agent/npm/node_modules`; missing dependencies fail rather than silently skip.
+
+### Optional live smoke and mechanic benchmark
+
+These commands **make paid/provider calls only with `--live`**. Authenticate with
+Pi first. A smoke test checks the exact pinned model and a fixed response marker;
+it refuses model/provider fallback. Other roles can be checked with `--role`.
+
+```bash
+node scripts/benchmark-mechanic.mjs --help
+node scripts/benchmark-mechanic.mjs smoke --live --role mechanic
+node scripts/benchmark-mechanic.mjs smoke --live --role reviewer
+mkdir -p .pi-benchmarks
+node scripts/benchmark-mechanic.mjs run --live --output .pi-benchmarks/mechanic.jsonl
+node scripts/benchmark-mechanic.mjs summary .pi-benchmarks/mechanic.jsonl
+```
+
+`run` makes four single-shot trials: two identical fresh tasks at each of `high`
+and `max` thinking. One fixes fractional discounts; the other adds a regression
+that must pass correct code and fail a known rounding mutation by assertion.
+The acceptance driver is outside the agent working directory. JSONL records
+requested/effective model and thinking, elapsed time, tokens/cost, turns, provider
+retries, corrective attempts (zero for these single-shot trials), failures, and
+independent acceptance. Unknown observations stay `null`, including counters from
+terminated workers; summaries separate known totals from missing observations.
+There is no automatic cost/quality recommendation. Two tasks and one trial per
+setting are a starting sample, not proof of general superiority; repeat with
+fresh output files before changing defaults. `--output` refuses existing files.
+
+Each attempt has a default two-minute wall timeout (`--timeout-ms` overrides it),
+a 24-turn working budget, and the runtime's five-turn wrap-up grace. Worker
+shutdown has an additional bounded grace. The benchmark overrides thinking only
+in temporary role copies, never your real configuration. Live diagnostics disable
+extensions/skills and persistent sessions, so smoke is not a full extension test.
+Credentials are copied privately into temporary storage; SDK OAuth refreshes can
+update that copy, not active auth. Custom model definitions are read from the
+active agent directory. Temporary resources are removed after each attempt.
+This is workspace separation, **not an OS sandbox**: model shell tools can still
+access your account's files/network. Run live trials only where that is acceptable.
+No live smoke or cost benchmark is part of the default offline tests.
 
 ## Updating and Pushing Changes
 

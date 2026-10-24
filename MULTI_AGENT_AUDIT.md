@@ -1,6 +1,6 @@
 # Multi-agent workflow audit
 
-Audited the current working tree, including the uncommitted role migration. This is a configuration/source audit, not a benchmark of model quality or live task success. No workflow configuration was changed.
+Audited the current working tree, including the uncommitted role migration. This is a configuration/source audit, not a benchmark of model quality or live task success. The original audit changed no workflow configuration; implementation follow-through is recorded below.
 
 ## Overall assessment
 
@@ -39,3 +39,15 @@ The architecture is sensible: one orchestrator owns decisions and integration, s
 - Installer deletion reproduced only in an isolated temporary directory; npm was mocked and no packages were installed.
 - Runtime findings checked against installed `@tintinweb/pi-subagents` 0.22.0 source under `agent/npm/node_modules/`; no live model calls were used to test delegation behavior.
 - Existing uncommitted changes were preserved.
+
+## Implementation follow-through
+
+All three recommendations now have implementation coverage:
+
+1. **Delegation regression tests:** `tests/delegation.test.mjs` and its fixture helper exercise the real extension runner with a mocked session boundary. Coverage includes every discovery tier, configuration precedence, standalone context, static/dynamic/nested tool gates, provider failures, exact turn-limit boundaries, independent failed-validation handoffs, and scripted review/correction. Routing/retry compliance remains an instruction contract, not a newly enforced runtime state machine.
+2. **Bounded execution and measurement:** mechanic now requests provisional `high` thinking and pins a 24-turn working budget (wrap-up at 24, abort after the default five-turn grace). Orchestrator and mechanic specify two corrective retries, escalation, resumable batches, explicit context handoffs, and observed/unknown metrics. `scripts/benchmark-mechanic.mjs` provides opt-in live smoke, a two-task high/max comparison, and an offline JSONL summary. Acceptance checks preserve dependencies and require a real assertion failure under mutation; missing metrics are not invented.
+3. **Non-destructive installation:** unmanaged agent directories, files, and foreign/dangling symlinks are refused before managed mutations or npm. Existing managed links remain untouched. Startup regressions cover preservation and repeat installation.
+
+Implementation validation: `node --test tests/*.test.mjs` passed all **31** offline tests; `node --check scripts/benchmark-mechanic.mjs`, `bash -n install.sh`, and whitespace checks passed. Independent review of installer/budget, delegation coverage, and benchmark corrections finished **READY**.
+
+Run `node --test tests/*.test.mjs` for offline checks. See `README.md` for live commands, authentication/isolation details, and limitations. No live provider smoke or empirical cost comparison was run during implementation, so lower cost or equal model quality is **not** claimed. The lower-thinking default remains provisional until measured.

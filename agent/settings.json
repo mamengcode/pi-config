@@ -1,11 +1,10 @@
 {
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.4.0",
   "theme": "dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
   "packages": [
-    "npm:pi-coding-agent",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-mcp-adapter",
     "npm:pi-context",
@@ -17,7 +16,9 @@
     "npm:@juicesharp/rpiv-i18n",
     "npm:@juicesharp/rpiv-web-tools",
     "npm:@juicesharp/rpiv-args",
-    "npm:@juicesharp/rpiv-workflow"
+    "npm:@juicesharp/rpiv-workflow",
+    "npm:pi-artifacts",
+    "npm:pi-goal-x"
   ],
   "modelThinkingLevels": {
     "openai-codex/gpt-6-luna": "xhigh",
@@ -33,5 +34,6 @@
   },
   "extensions": [
     "-builtin:mcp"
-  ]
+  ],
+  "deviceId": "2112c951-e73e-42f9-8c08-171882c67ed1"
 }
