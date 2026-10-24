@@ -35,5 +35,6 @@
   "extensions": [
     "-builtin:mcp"
   ],
-  "deviceId": "2112c951-e73e-42f9-8c08-171882c67ed1"
+  "deviceId": "2112c951-e73e-42f9-8c08-171882c67ed1",
+  "hideThinkingBlock": true
 }
